@@ -15,6 +15,18 @@ public class Win {
 
     }
 
+    static int verifyWinnerMachine(String[][] playerOne) {
+
+        String one = winner(playerOne);
+
+        if(one != "") {
+            return -1;
+        } else {
+            return 1;
+        }
+
+    }
+
     static String winner(String[][] twoDimArray) {
 
         String horizontal = linesHorizontal(twoDimArray);

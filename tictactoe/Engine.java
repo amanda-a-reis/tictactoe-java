@@ -5,8 +5,16 @@ import tictactoe.Print.*;
 
 public class Engine {
 
-    static String[][] machinePlays(String[][] twoDimArray) {
-        System.out.println("Making move level \"easy\"");
+    static String[][] machinePlays(String[][] twoDimArray, String level) {
+
+
+        if (level ==  "easy") {
+            System.out.println("Making move level \"easy\"");
+        }
+
+        if (level == "medium") {
+            System.out.println("Making move level \"medium\"");
+        }
 
         Random random = new Random();
         int coordinateLine = random.nextInt(3);
@@ -70,10 +78,8 @@ public class Engine {
 
         if(numbersOfX <= numbersOfO) {
             twoDimArray[coordinateLine][coordinateColumn] = "X";
-            numbersOfX++;
         } else {
             twoDimArray[coordinateLine][coordinateColumn] = "O";
-            numbersOfO++;
         }
 
         Print.printTwoDimensionsArray(twoDimArray);

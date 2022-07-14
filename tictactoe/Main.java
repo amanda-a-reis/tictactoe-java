@@ -10,11 +10,20 @@ public class Main {
     public static void main(String[] args) {
 
         //while stops when game ends
-        int exit = 0;
+        int exitGame = 0;
 
-        while (exit != -1) {
+        while (exitGame != -1) {
 
             String[] commands = starOrEndGame();
+
+            while (commands.length != 3 && !commands[0].equals("exit")) {
+                System.out.println("Bad parameters!");
+                commands = starOrEndGame();
+;            }
+
+            if(commands[0].equals("exit")) {
+                break;
+            }
 
             String[][] twoDimArray = Print.printVoidArray();
 
@@ -32,6 +41,19 @@ public class Main {
             if(commands[1].equals("user") && commands[2].equals("easy")) {
                 Mode.userEasy(twoDimArray);
             }
+
+            if(commands[1].equals("medium") && commands[2].equals("user")) {
+                Mode.mediumUser(twoDimArray);
+            }
+
+            if(commands[1].equals("user") && commands[2].equals("medium")) {
+                Mode.userMedium(twoDimArray);
+            }
+
+            if(commands[1].equals("medium") && commands[2].equals("medium")) {
+                Mode.mediumMedium(twoDimArray);
+            }
+
         }
     }
 
@@ -42,9 +64,5 @@ public class Main {
 
         return userCommands;
     }
-
-
-
-
 
 }
